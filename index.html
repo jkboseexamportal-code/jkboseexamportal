@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#155eef">
+<title>JKBOSE Exam Portal | Class 11</title>
+<style>
+:root{--blue:#155eef;--deep:#123b82;--pale:#eff6ff;--ink:#14213d;--muted:#667085;--line:#e5eaf2;--white:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#f7f9fc;color:var(--ink)}
+header{background:linear-gradient(120deg,#1247a8,#2878f0);color:white;padding:18px max(5vw,18px) 52px}
+nav{display:flex;justify-content:space-between;align-items:center;gap:12px;max-width:1100px;margin:auto}
+.brand{font-weight:800;font-size:18px;letter-spacing:.2px}.brand span{display:inline-grid;place-items:center;background:#ffffff24;border:1px solid #ffffff55;border-radius:10px;width:36px;height:36px;margin-right:8px}
+nav a{color:#eaf1ff;text-decoration:none;font-size:13px;margin-left:18px}
+.hero{max-width:1100px;margin:42px auto 0}.eyebrow{font-size:12px;font-weight:700;letter-spacing:1.5px;color:#cfe0ff}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.08;margin:12px 0}.hero p{max-width:570px;color:#e2ebff;line-height:1.6;margin-bottom:24px}
+.search{display:flex;max-width:540px;background:white;padding:6px;border-radius:12px;box-shadow:0 8px 25px #092b6c33}
+.search input{flex:1;min-width:0;border:0;outline:0;padding:10px 12px;font-size:14px}.search button,.primary{background:var(--blue);color:white;border:0;border-radius:9px;padding:11px 16px;font-weight:700;cursor:pointer}
+main{max-width:1100px;margin:-24px auto 0;padding:0 18px 50px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat,.panel,.feature,.subject{background:white;border:1px solid var(--line);border-radius:15px}.stat{padding:17px;box-shadow:0 5px 18px #172b4d0b}.stat strong{display:block;font-size:23px;color:var(--blue)}.stat small{color:var(--muted)}
+.section{margin-top:34px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-bottom:15px}.section h2{font-size:21px;margin:0}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}
+.subjects{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.subject{padding:16px;text-align:left;cursor:pointer;color:var(--ink);transition:.15s}.subject:hover,.feature:hover{border-color:#9bbcff;transform:translateY(-2px)}.subject .emoji{font-size:25px}.subject b{display:block;margin:9px 0 4px}.subject small{color:var(--muted)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.feature{padding:19px;cursor:pointer;text-align:left;color:var(--ink)}.feature .ico{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:var(--pale);font-size:20px}.feature h3{margin:13px 0 6px;font-size:16px}.feature p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+.panel{padding:20px}.panel p{color:var(--muted);line-height:1.6;font-size:14px}.tag{display:inline-block;padding:5px 9px;background:#fff4db;color:#8a5a00;border-radius:30px;font-size:11px;font-weight:700}
+footer{background:#0d2855;color:#d8e5ff;padding:25px 18px;text-align:center;font-size:12px;line-height:1.7}
+.modal{display:none;position:fixed;inset:0;background:#071a38a8;z-index:5;padding:18px;align-items:center;justify-content:center}.modal.show{display:flex}.dialog{background:white;border-radius:18px;padding:22px;width:min(560px,100%);max-height:85vh;overflow:auto}.dialog-top{display:flex;justify-content:space-between;gap:12px;align-items:center}.close{border:0;background:#edf2fa;border-radius:8px;padding:8px 11px;cursor:pointer}.item{border:1px solid var(--line);padding:13px;border-radius:10px;margin-top:10px}.item small{color:var(--muted)}.quiz-option{display:block;width:100%;text-align:left;background:#f6f8fc;border:1px solid var(--line);padding:12px;border-radius:9px;margin:8px 0;cursor:pointer}.quiz-option:hover{border-color:var(--blue)}.note{font-size:12px;color:var(--muted)}
+@media(max-width:700px){nav a{margin-left:8px;font-size:12px}.subjects{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:430px){.features{grid-template-columns:1fr}.stats{gap:7px}.stat{padding:12px}.stat strong{font-size:19px}.stat small{font-size:10px}}
+</style>
+</head>
+<body>
+<header>
+<nav><div class="brand"><span>📘</span>JKBOSE Exam Portal</div><div><a href="#subjects">Subjects</a><a href="#resources">Resources</a><a href="#quiz">Quiz</a> <button class="primary" style="padding:8px 11px;margin-left:10px;background:#fff;color:#155eef" onclick="openAdmin()">Admin</button></div></nav>
+<div class="hero">
+<div class="eyebrow">JAMMU & KASHMIR BOARD • CLASS 11</div>
+<h1>Prepare smarter.<br>Achieve more.</h1>
+<p>Your study space for previous-year papers, model papers, important questions and practice quizzes — all in one place.</p>
+<div class="search"><input id="searchInput" placeholder="Search subjects or study resources..." aria-label="Search"><button onclick="searchPortal()">Search</button></div>
+</div>
+</header>
+<main>
+<div class="stats">
+<div class="stat"><strong>Class 11</strong><small>Current focus</small></div>
+<div class="stat"><strong>8</strong><small>Subject areas</small></div>
+<div class="stat"><strong>24/7</strong><small>Learn at your pace</small></div>
+</div>
+<section class="section" id="subjects">
+<div class="section-head"><div><h2>Explore your subjects</h2><p>Choose a subject to find its study material.</p></div></div>
+<div class="subjects" id="subjectGrid">
+<button class="subject" data-search="english" onclick="openSection('English')"><span class="emoji">📖</span><b>English</b><small>Literature & writing</small></button>
+<button class="subject" data-search="economics" onclick="openSection('Economics')"><span class="emoji">📊</span><b>Economics</b><small>Statistics & IED</small></button>
+<button class="subject" data-search="geography" onclick="openSection('Geography')"><span class="emoji">🌍</span><b>Geography</b><small>Physical & India</small></button>
+<button class="subject" data-search="political science" onclick="openSection('Political Science')"><span class="emoji">⚖️</span><b>Political Science</b><small>Political theory</small></button>
+<button class="subject" data-search="information technology it ites" onclick="openSection('Information Technology')"><span class="emoji">💻</span><b>IT / ITES</b><small>Digital skills</small></button>
+<button class="subject" data-search="history" onclick="openSection('History')"><span class="emoji">🏛️</span><b>History</b><small>Past & societies</small></button>
+<button class="subject" data-search="education" onclick="openSection('Education')"><span class="emoji">🎓</span><b>Education</b><small>Learning & society</small></button>
+<button class="subject" data-search="optional subject" onclick="openSection('Other subjects')"><span class="emoji">📚</span><b>Other subjects</b><small>More subject space</small></button>
+</div>
+</section>
+<section class="section" id="resources">
+<div class="section-head"><div><h2>Study resources</h2><p>Everything you need for exam preparation.</p></div></div>
+<div class="features">
+<button class="feature" onclick="openSection('Previous Year Question Papers')"><span class="ico">📄</span><h3>Previous Year Papers</h3><p>Find past papers by subject and year.</p></button>
+<button class="feature" onclick="openSection('Model Papers')"><span class="ico">📝</span><h3>Model Papers</h3><p>Practice with exam-style sample papers.</p></button>
+<button class="feature" onclick="openSection('Important PYQs')"><span class="ico">⭐</span><h3>Important PYQs</h3><p>Important and repeated questions with marks.</p></button>
+<button class="feature" onclick="openSection('Notes & Solutions')"><span class="ico">📚</span><h3>Notes & Solutions</h3><p>Chapter-wise notes and answer explanations.</p></button>
+<button class="feature" id="quiz" onclick="startQuiz()"><span class="ico">🧠</span><h3>Practice Quiz</h3><p>Attempt MCQs and see your score instantly.</p></button>
+<button class="feature" onclick="openSection('Study Planner')"><span class="ico">📅</span><h3>Study Planner</h3><p>Organise revision and track your goals.</p></button>
+</div>
+</section>
+<section class="section">
+<div class="panel"><span class="tag">CONTENT UPDATE IN PROGRESS</span><h2>Built for JKBOSE students</h2><p>This is the first working version. Question papers and model papers will be added after checking their year, subject, class and source. We will not label sample or unverified material as an official JKBOSE paper.</p><p class="note">Always check the latest syllabus and notices on the official JKBOSE website.</p><p class="note"><b>Admin demo:</b> use the Admin button in the top navigation to try adding resource entries on this device.</p></div>
+</section>
+</main>
+<footer>© 2026 JKBOSE Exam Portal • An independent student learning project.<br>Not an official JKBOSE website. Board names and materials belong to their respective owners.</footer>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="if(event.target===this)closeModal()"><div class="dialog"><div class="dialog-top"><h2 id="modalTitle">Resources</h2><button class="close" onclick="closeModal()">✕</button></div><div id="modalBody"></div></div></div>
+<script>
+const modal=document.getElementById('modal');
+function showModal(title,html){document.getElementById('modalTitle').textContent=title;document.getElementById('modalBody').innerHTML=html;modal.classList.add('show')}
+function closeModal(){modal.classList.remove('show')}
+
+const ADMIN_KEY='jkbosePortalResourcesV1';
+function getAdminItems(){try{return JSON.parse(localStorage.getItem(ADMIN_KEY)||'[]')}catch(e){return []}}
+function saveAdminItems(items){localStorage.setItem(ADMIN_KEY,JSON.stringify(items))}
+function openAdmin(){
+ const items=getAdminItems();
+ showModal('Admin Panel — Demo',`
+ <p class="note">Prototype mode: entries are saved only in this browser. This is not yet a secure live admin system, and selected PDFs are not uploaded to a public server.</p>
+ <form id="adminForm" onsubmit="addAdminItem(event)">
+ <label><b>Resource title</b></label><input id="resourceTitle" required placeholder="e.g. Economics 2025 Question Paper" style="width:100%;padding:11px;margin:7px 0 12px;border:1px solid #d8dfeb;border-radius:8px">
+ <label><b>Resource type</b></label><select id="resourceType" style="width:100%;padding:11px;margin:7px 0 12px;border:1px solid #d8dfeb;border-radius:8px"><option>Previous Year Paper</option><option>Model Paper</option><option>Important Questions</option><option>Notes & Solutions</option></select>
+ <label><b>Subject</b></label><select id="resourceSubject" style="width:100%;padding:11px;margin:7px 0 12px;border:1px solid #d8dfeb;border-radius:8px"><option>English</option><option>Economics</option><option>Geography</option><option>Political Science</option><option>Information Technology</option><option>History</option><option>Education</option><option>Other</option></select>
+ <label><b>Year (if applicable)</b></label><input id="resourceYear" placeholder="e.g. 2025" style="width:100%;padding:11px;margin:7px 0 12px;border:1px solid #d8dfeb;border-radius:8px">
+ <label><b>PDF file (optional for this demo)</b></label><input id="resourceFile" type="file" accept=".pdf,application/pdf" style="display:block;margin:9px 0 15px">
+ <button class="primary" type="submit">Add resource to demo list</button>
+ </form>
+ <hr style="border:0;border-top:1px solid #e5eaf2;margin:20px 0">
+ <h3>Added resources (${items.length})</h3>
+ <div id="adminList">${adminListHtml(items)}</div>`);
+}
+function adminListHtml(items){
+ if(!items.length)return '<p class="note">No resources added yet.</p>';
+ return items.map((x,i)=>`<div class="item"><b>${escapeHtml(x.title)}</b><br><small>${escapeHtml(x.type)} • ${escapeHtml(x.subject)} • ${escapeHtml(x.year||'Year not set')}</small><br><button class="close" style="margin-top:8px" onclick="deleteAdminItem(${i})">Delete entry</button></div>`).join('');
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function addAdminItem(e){
+ e.preventDefault();
+ const file=document.getElementById('resourceFile').files[0];
+ const items=getAdminItems();
+ items.unshift({title:document.getElementById('resourceTitle').value.trim(),type:document.getElementById('resourceType').value,subject:document.getElementById('resourceSubject').value,year:document.getElementById('resourceYear').value.trim(),fileName:file?file.name:''});
+ saveAdminItems(items);
+ openAdmin();
+}
+function deleteAdminItem(i){const items=getAdminItems();items.splice(i,1);saveAdminItems(items);openAdmin()}
+function openSection(name){
+ const subjects=['English','Economics','Geography','Political Science','Information Technology','History','Education','Other subjects'];
+ const isSubject=subjects.includes(name);
+ const html=isSubject
+ ? `<p>Choose what you want to study in <b>${name}</b>.</p>${['Previous Year Papers','Model Papers','Important Questions','Notes & Solutions','Practice Quiz'].map(x=>`<div class="item"><b>${x}</b><br><small>Content will be added after source and syllabus verification.</small>${x==='Practice Quiz'?'<br><button class="primary" style="margin-top:9px" onclick="startQuiz()">Start sample quiz</button>':''}</div>`).join('')}`
+ : `<p><b>${name}</b></p><div class="item"><b>Coming soon</b><br><small>We will add verified Class 11 subject-wise resources here. Uploads will include clear year, set, marks and source details.</small></div>`;
+ showModal(name,html);
+}
+function searchPortal(){
+ const q=document.getElementById('searchInput').value.trim().toLowerCase();
+ if(!q){showModal('Search the portal','<p>Type a subject or resource name in the search box.</p>');return}
+ const cards=[...document.querySelectorAll('.subject')];
+ const matches=cards.filter(c=>(c.dataset.search+' '+c.innerText).toLowerCase().includes(q));
+ const resourceNames=['Previous Year Papers','Model Papers','Important PYQs','Notes & Solutions','Practice Quiz','Study Planner'];
+ const resources=resourceNames.filter(x=>x.toLowerCase().includes(q));
+ let html='';
+ matches.forEach(c=>html+=`<div class="item"><b>${c.innerText.split('\\n')[1]||c.innerText}</b><br><button class="primary" style="margin-top:8px" onclick="openSection('${c.querySelector('b').innerText}')">Open subject</button></div>`);
+ resources.forEach(x=>html+=`<div class="item"><b>${x}</b><br><small>Open this study section from the resources area.</small></div>`);
+ showModal('Search results',html||'<p>No matching result. Try English, Economics, Geography or Model Papers.</p>');
+}
+const questions=[
+ {q:'Which measure of central tendency is the middle value when data are arranged in order?',a:['Mean','Median','Mode','Range'],c:1,e:'The median is the middle value in an arranged data set.'},
+ {q:'Which gas is most associated with the greenhouse effect from human activities?',a:['Oxygen','Nitrogen','Carbon dioxide','Helium'],c:2,e:'Carbon dioxide is a major greenhouse gas released by human activities.'},
+ {q:'Which part of a computer is commonly called its brain?',a:['Monitor','CPU','Keyboard','Mouse'],c:1,e:'The CPU processes instructions and controls computer operations.'}
+];
+let qi=0,score=0;
+function startQuiz(){qi=0;score=0;renderQuestion()}
+function renderQuestion(){
+ const x=questions[qi];
+ showModal('Quick practice quiz',`<p class="note">Question ${qi+1} of ${questions.length} • Score: ${score}</p><h3>${x.q}</h3>${x.a.map((v,i)=>`<button class="quiz-option" onclick="answerQuiz(${i})">${String.fromCharCode(65+i)}. ${v}</button>`).join('')}<p class="note">Sample questions for demonstrating the quiz feature. Subject-specific question banks will be added later.</p>`);
+}
+function answerQuiz(i){
+ const x=questions[qi],ok=i===x.c;if(ok)score++;
+ showModal('Answer explanation',`<p>${ok?'✅ Correct!':'Not quite.'} ${x.e}</p><p class="note">Your score: ${score}/${qi+1}</p><button class="primary" onclick="nextQuestion()">${qi===questions.length-1?'See result':'Next question'}</button>`);
+}
+function nextQuestion(){qi++;if(qi<questions.length)renderQuestion();else showModal('Quiz complete',`<h2>${score} / ${questions.length}</h2><p>You completed the sample quiz.</p><button class="primary" onclick="startQuiz()">Try again</button>`)}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+</script>
+</body>
+</html>
